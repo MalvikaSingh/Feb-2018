@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<head>
+        <title>Table Data Addition</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+    </head>
+    <h2>Employee Records</h2>
+    <p>
+        <br>
+    </p>
+    <body>
+        <div class="fluid">
+            <table id="Table1" data-height="460">
+            <thead>
+                <tr>
+                    <th data-field="name">UserName</th>
+                    <th data-field="id">UserID</th>
+                    <th data-field="crdate">Creation Date</th>
+                    <th data-field="lldate">Last Login Date</th>
+                    <th data-field="role">Role</th>
+                </tr>
+            </thead>
+        </table>
+        </div>
+    </body>
+<script>
+var data = 
+        [
+        {"name":"Cloris Banke","id":120348,"crdate":"9.2.2014","lldate":"17.1.2018","role":"GIS Technical Architect"},    {"name":"Leesa Gore","id":86681,"crdate":"18.2.2014","lldate":"28.1.2018","role":"Social Worker"},
+        {"name":"Webb Vasyutkin","id":76709,"crdate":"4.6.2016","lldate":"16.1.2018","role":"Product Engineer"},
+        {"name":"Rozella Bachelor","id":112680,"crdate":"17.7.2014","lldate":"21.1.2018","role":"Research Nurse"},
+        {"name":"Kaleena Tyrwhitt","id":75488,"crdate":"26.7.2016","lldate":"13.1.2018","role":"Human Resources Manager"},
+        {"name":"Haydon Fattore","id":36701,"crdate":"8.7.2014","lldate":"30.1.2018","role":"Teacher"},
+        {"name":"Joseito Blyth","id":82296,"crdate":"23.11.2016","lldate":"21.1.2018","role":"Social Worker"},
+        {"name":"Dory Mobius","id":26153,"crdate":"3.5.2014","lldate":"10.1.2018","role":"Product Engineer"},
+        {"name":"Calli Temblett","id":21782,"crdate":"4.9.2016","lldate":"3.1.2018","role":"Structural Engineer"},
+        {"name":"Zahara Gillinghams","id":33464,"crdate":"14.6.2015","lldate":"21.1.2018","role":"Programmer Analyst IV"},
+        {"name":"Rosene Seaton","id":23312,"crdate":"5.12.2014","lldate":"19.1.2018","role":"Mechanical Systems Engineer"},
+        {"name":"Sybilla Sterke","id":42593,"crdate":"11.2.2014","lldate":"8.1.2018","role":"Nurse Practicioner"},
+        {"name":"Franklin Wenn","id":75518,"crdate":"13.1.2016","lldate":"16.1.2018","role":"VP Product Management"},
+        {"name":"Skip Robley","id":109377,"crdate":"9.6.2016","lldate":"1.1.2018","role":"Human Resources Manager"},
+        {"name":"Persis Beatty","id":67676,"crdate":"31.10.2016","lldate":"5.1.2018","role":"Physical Therapy Assistant"},
+        {"name":"Cinderella Thieme","id":115788,"crdate":"13.2.2015","lldate":"15.1.2018","role":"VP Accounting"},
+        {"name":"Finlay Waring","id":14040,"crdate":"20.1.2014","lldate":"19.1.2018","role":"Graphic Designer"},
+        {"name":"Iago Reightley","id":114202,"crdate":"23.4.2015","lldate":"7.1.2018","role":"Business Systems Development Analyst"},
+        {"name":"Dud Dunge","id":21600,"crdate":"27.6.2015","lldate":"29.1.2018","role":"Assistant Manager"},
+        {"name":"Silvie Dewerson","id":118769,"crdate":"14.12.2015","lldate":"29.1.2018","role":"Junior Executive"},
+        {"name":"Leona Gawthorpe","id":35328,"crdate":"22.11.2014","lldate":"11.1.2018","role":"Financial Advisor"},
+        {"name":"Doti Josefsen","id":64974,"crdate":"7.6.2014","lldate":"18.1.2018","role":"Registered Nurse"},
+        {"name":"Fanchon Scarasbrick","id":57829,"crdate":"4.11.2015","lldate":"7.1.2018","role":"Help Desk Operator"},
+        {"name":"Carlen Crowch","id":3700,"crdate":"24.11.2016","lldate":"7.1.2018","role":"Assistant Media Planner"},
+        {"name":"Kahlil Brownsey","id":4899,"crdate":"27.6.2016","lldate":"29.1.2018","role":"Senior Financial Analyst"},
+        {"name":"Petronille Hallt","id":8195,"crdate":"6.3.2015","lldate":"6.1.2018","role":"Software Consultant"},
+        {"name":"Ado Kupker","id":83070,"crdate":"19.1.2016","lldate":"23.1.2018","role":"Senior Quality Engineer"},
+        {"name":"Ardyce Vasquez","id":84569,"crdate":"10.11.2015","lldate":"22.1.2018","role":"Budget/Accounting Analyst IV"},
+        {"name":"Reginauld Lowres","id":98270,"crdate":"20.4.2016","lldate":"12.1.2018","role":"Nurse"},
+        {"name":"Griffith Loines","id":66955,"crdate":"5.12.2014","lldate":"20.1.2018","role":"Data Coordiator"},
+        {"name":"Brenna Duley","id":77429,"crdate":"5.8.2016","lldate":"21.1.2018","role":"Payment Adjustment Coordinator"}
+        
+        ];
+        
+        $(function () {
+            $('#Table1').bootstrapTable({
+                data: data
+            });
+        });
+        </script>
+        <body>
+                <p>
+                 <br>
+                    </p>
+                <p align="center">Click the button to print the current page.</p>
+                <style>
+                        .button {
+                            background-color: darkblue; /* Green */
+                            border: none;
+                            color: white;
+                            padding: 9px 20px;
+                            text-align: center;
+                            text-decoration: none;
+                            display: block;
+                            font-size: 16px;
+                            margin: auto;
+                            cursor: pointer;
+                        }
+                        
+                        </style>
+                <button onclick="myFunction()" class="button">Print this page</button>
+                
+                <script>
+                function myFunction() {
+                    window.print();
+                }
+                </script>
+                
+        </body>
+</html>
