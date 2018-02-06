@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<head>
+        <title>Table Data Addition</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+    </head>
+    <h2>Employee Records of ALL</h2>
+    <body>
+        <style>
+                .button {
+                    background-color: darkblue; /* Green */
+                    border: none;
+                    color: white;
+                    padding: 9px 20px;
+                    text-decoration: none;
+                    display: block;
+                    font-size: 16px;
+                    margin: auto;
+                    cursor: pointer;
+                }
+                
+                </style>
+        <input id="printpagebutton" type="button" class="button" value="Print this page" onclick="printpage()" style="float: right;"/>
+        <!----<button onclick="myFunction()" class="button" align="center">Print this page</button>-->
+        
+        <script type="text/javascript">
+    function printpage() {
+        //Get the print button and put it into a variable
+        var printButton = document.getElementById("printpagebutton");
+        //Set the print button visibility to 'hidden' 
+        printButton.style.visibility = 'hidden';
+        //Print the page content
+        window.print()
+        //Set the print button to 'visible' again 
+        //[Delete this line if you want it to stay hidden after printing]
+        printButton.style.visibility = 'visible';
+    }
+</script>
+        
+</body>
+    <p><br><br></p>
+    <body>
+        <div class="fluid">
+            <table id="Table1">
+            <thead>
+                <tr>
+                    <th data-field="name">UserName</th>
+                    <th data-field="id">UserID</th>
+                    <th data-field="crdate">Creation Date</th>
+                    <th data-field="lldate">Last Login Date</th>
+                    <th data-field="role">Role</th>
+                    <th data-field="country">Country</th>
+
+                </tr>
+            </thead>
+        </table>
+        </div>
+    </body>
+<script>
+var data = 
+        [
+        {"name":"Cloris Banke","id":120348,"crdate":"9.2.2014","lldate":"17.1.2018","role":"GIS Technical Architect","country":"India"},    
+        {"name":"Leesa Gore","id":86681,"crdate":"18.2.2014","lldate":"28.1.2018","role":"Social Worker","country":"India"},
+        {"name":"Webb Vasyutkin","id":76709,"crdate":"4.6.2016","lldate":"16.1.2018","role":"Product Engineer","country":"India"},
+        {"name":"Rozella Bachelor","id":112680,"crdate":"17.7.2014","lldate":"21.1.2018","role":"Research Nurse","country":"India"},
+        {"name":"Kaleena Tyrwhitt","id":75488,"crdate":"26.7.2016","lldate":"13.1.2018","role":"Human Resources Manager","country":"India"},
+        {"name":"Haydon Fattore","id":36701,"crdate":"8.7.2014","lldate":"30.1.2018","role":"Teacher","country":"India"},
+        {"name":"Joseito Blyth","id":82296,"crdate":"23.11.2016","lldate":"21.1.2018","role":"Social Worker","country":"India"},
+        {"name":"Dory Mobius","id":26153,"crdate":"3.5.2014","lldate":"10.1.2018","role":"Product Engineer","country":"India"},
+        {"name":"Calli Temblett","id":21782,"crdate":"4.9.2016","lldate":"3.1.2018","role":"Structural Engineer","country":"India"},
+        {"name":"Zahara Gillinghams","id":33464,"crdate":"14.6.2015","lldate":"21.1.2018","role":"Programmer Analyst IV","country":"India"},
+        {"name":"Rosene Seaton","id":23312,"crdate":"5.12.2014","lldate":"19.1.2018","role":"Mechanical Systems Engineer","country":"India"},
+        {"name":"Sybilla Sterke","id":42593,"crdate":"11.2.2014","lldate":"8.1.2018","role":"Nurse Practicioner","country":"India"},
+        {"name":"Franklin Wenn","id":75518,"crdate":"13.1.2016","lldate":"16.1.2018","role":"VP Product Management","country":"India"},
+        {"name":"Skip Robley","id":109377,"crdate":"9.6.2016","lldate":"1.1.2018","role":"Human Resources Manager","country":"India"},
+        {"name":"Persis Beatty","id":67676,"crdate":"31.10.2016","lldate":"5.1.2018","role":"Physical Therapy Assistant","country":"India"},
+        {"name":"Cinderella Thieme","id":115788,"crdate":"13.2.2015","lldate":"15.1.2018","role":"VP Accounting","country":"India"},
+        {"name":"Finlay Waring","id":14040,"crdate":"20.1.2014","lldate":"19.1.2018","role":"Graphic Designer","country":"India"},
+        {"name":"Iago Reightley","id":114202,"crdate":"23.4.2015","lldate":"7.1.2018","role":"Business Systems Development Analyst","country":"India"},
+        {"name":"Dud Dunge","id":21600,"crdate":"27.6.2015","lldate":"29.1.2018","role":"Assistant Manager","country":"India"},
+        {"name":"Silvie Dewerson","id":118769,"crdate":"14.12.2015","lldate":"29.1.2018","role":"Junior Executive","country":"India"},
+        {"name":"Leona Gawthorpe","id":35328,"crdate":"22.11.2014","lldate":"11.1.2018","role":"Financial Advisor","country":"India"},
+        {"name":"Doti Josefsen","id":64974,"crdate":"7.6.2014","lldate":"18.1.2018","role":"Registered Nurse","country":"India"},
+        {"name":"Fanchon Scarasbrick","id":57829,"crdate":"4.11.2015","lldate":"7.1.2018","role":"Help Desk Operator","country":"India"},
+        {"name":"Carlen Crowch","id":3700,"crdate":"24.11.2016","lldate":"7.1.2018","role":"Assistant Media Planner","country":"India"},
+        {"name":"Kahlil Brownsey","id":4899,"crdate":"27.6.2016","lldate":"29.1.2018","role":"Senior Financial Analyst","country":"India"},
+        {"name":"Petronille Hallt","id":8195,"crdate":"6.3.2015","lldate":"6.1.2018","role":"Software Consultant","country":"India"},
+        {"name":"Ado Kupker","id":83070,"crdate":"19.1.2016","lldate":"23.1.2018","role":"Senior Quality Engineer","country":"India"},
+        {"name":"Ardyce Vasquez","id":84569,"crdate":"10.11.2015","lldate":"22.1.2018","role":"Budget/Accounting Analyst IV","country":"India"},
+        {"name":"Reginauld Lowres","id":98270,"crdate":"20.4.2016","lldate":"12.1.2018","role":"Nurse","country":"India"},
+        {"name":"Griffith Loines","id":66955,"crdate":"5.12.2014","lldate":"20.1.2018","role":"Data Coordiator","country":"India"},
+        {"name":"Brenna Duley","id":77429,"crdate":"5.8.2016","lldate":"21.1.2018","role":"Payment Adjustment Coordinator","country":"India"}
+        
+        ];
+        
+        $(function () {
+            $('#Table1').bootstrapTable({
+                data: data
+            });
+        });
+        </script>
+</html>
