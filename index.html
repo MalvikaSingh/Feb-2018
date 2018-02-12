@@ -1,0 +1,195 @@
+<html>
+<head>
+    <nav class="navbar navbar-light" style="background-color:darkblue">
+        <h2 style="color:white" align="center"style="font-size:36px;"><br>Employee Login Details</h2>
+          </nav>
+<script type="text/javascript">
+function findDay()
+{
+var eID = document.getElementById("daysCombo");
+var eID1=document.getElementById("item3");
+var eID_count=document.getElementById("item1");
+var monthVal = eID.options[eID.selectedIndex].value;
+var monthtxt = eID.options[eID.selectedIndex].text;
+var country_value=eID_count.options[eID_count.selectedIndex].value;
+if(monthVal==0 ||country_value=="Country"){
+  alert("Please select missing field/s");
+}
+  if(monthVal!=0 && country_value!="Country")
+alert("Selected Item  " +  monthtxt + ", Value " + monthVal);
+}
+</script>
+</head>
+<body>
+<select id="daysCombo">
+  <option value="0">------------------------------Select Month--------------------------------</option>
+  <option value="1">January</option>
+  <option value="2">February</option>
+  <option value="3">March</option>
+  <option value="4">April</option>
+  <option value="5">May</option>
+  <option value="6">June</option>
+  <option value="7">July</option>
+  <option value="8">August</option>
+  <option value="9">September</option>
+  <option value="10">October</option>
+  <option value="11">November</option>
+  <option value="12">December</option>
+</select>
+<p><br></p>
+<select id="item1" name="Item 1">
+  <option value="Country">------------------------------Select Country------------------------------</option>
+  <option value="AF">Afghanistan</option>
+  <option value="AX">Åland Islands</option>
+  <option value="AL">Albania</option>
+  <option value="DZ">Algeria</option>
+  <option value="AS">American Samoa</option>
+  <option value="AD">Andorra</option>
+  <option value="AO">Angola</option>
+  <option value="AI">Anguilla</option>
+  <option value="AQ">Antarctica</option>
+  <option value="AG">Antigua and Barbuda</option>
+  <option value="AR">Argentina</option>
+  <option value="AM">Armenia</option>
+  <option value="AW">Aruba</option>
+</select>
+  <script>
+    var expanded = false;
+    
+    function showCheckboxes() {
+      var checkboxes = document.getElementById("checkboxes");
+      if (!expanded) {
+        checkboxes.style.display = "block";
+        expanded = true;
+      } else {
+        checkboxes.style.display = "none";
+        expanded = false;
+      }
+    }</script>
+    <style>
+    .multiselect {
+      width: 500px;
+      padding: 18px 18px;
+    }
+    
+    .selectBox {
+      position: relative;
+    }
+    
+    .selectBox select {
+      width: 100%;
+    }
+    
+    .overSelect {
+      position: relative;
+      left: 10px;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+    
+    #checkboxes {
+      display: none;
+      border: 1px #dadada solid;
+    }
+    
+    #checkboxes label {
+      display: block;
+    }
+    
+    #checkboxes label:hover {
+      background-color: #1e90ff;
+    }
+    form {
+      width:550px; 
+        padding: 8px 8px;
+        margin-right: 20%;
+    }
+    </style>
+    <style>
+    #item1{
+        width:450px; 
+        padding: 8px 8px;
+        margin-right: 20%;
+       }</style>
+       <style>
+          #daysCombo{
+              width:450px; 
+              padding: 8px 8px;
+              align-self: center;
+             }</style>
+             <p></p>
+  <div class="multiselect"style="margin:0 auto;width:50%;text-align:center">
+      <div class="selectBox" onclick="showCheckboxes()"style="margin-left:-355px;width:450px;padding:18px 18px;">
+        <select textbox-align:"left" style="padding:8px 8px">
+          <option>-----------------------------Select option/s-------------------------------</option>
+        </select>
+        <div class="overSelect"align="left"></div>
+      </div>
+      <div id="checkboxes" style="margin:0 auto;width:75%;text-align:left">
+          <form action="ni_17.html" method="get">
+<input type="checkbox" name="chb" value="ALL" id="mycheck1" />ALL FILES<br/>
+<input type="checkbox" name="chb" value="ACE" id="mycheck2"/>ACE.csv<br/>
+<input type="checkbox" name="chb" value="CORE" id="mycheck3"/>CORE.csv<br/>
+<input type="checkbox" name="chb" value="ETRADE" id="mycheck4"/>ETRADE.csv<br/>
+<input type="checkbox" name="chb" value="INB" id="mycheck5"/>INB.csv<br/>
+<input type="checkbox" name="chb" value="LOS" id="mycheck6"/>LOS.csv<br/>
+<input type="checkbox" name="chb" value="NETCAST" id="mycheck7"/>NETCAST.csv<br/>
+<p><br></p>
+<input type="submit" value="Submit for 2017" class="button" />
+<p></p>
+<input type="submit" value="Submit for 2018" formaction="/ni_18.html" class="button"/>
+<p></p>
+<input type="submit" value="Submit for current month" formaction="/curr.html" class="button"/>
+</form>
+</div>
+</div>
+<script type="text/javascript">
+function getSelectedChbox(frm) {
+var selchbox = [];        // array that will store the value of selected checkboxes
+
+// gets all the input tags in frm, and their number
+var inpfields = frm.getElementsByTagName('input');
+var nr_inpfields = inpfields.length;
+
+// traverse the inpfields elements, and adds the value of selected (checked) checkbox in selchbox
+for(var i=0; i<nr_inpfields; i++) {
+if(inpfields[i].type == 'checkbox' && inpfields[i].checked == true) selchbox.push(inpfields[i].value);
+}
+return selchbox;
+}
+// When click on #btntest, alert the selected values
+document.getElementById('btntest').onclick = function(){
+var selchb = getSelectedChbox(this.form);     // gets the array returned by getSelectedChbox()
+selchb.push('2');
+alert(selchb);
+localStorage.setItem(selchb);
+var ID = document.getElementById("daysCombo");
+var ID1=document.getElementById("item3");
+var monVal = ID.options[ID.selectedIndex].value;
+var year=ID1.options[ID1.selectedIndex].text;
+if(year=="2017")
+document.location.href="ni_17.html";  //add filename containing 2017 data
+else{
+document.location.href="ni_18.html";  //add filename containing 2018 data
+}
+}
+</script>
+
+<style>
+  .button {
+      background-color: darkblue; 
+      border: none;
+      color: white;
+      padding: 10px 22px;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      font-size: 16px;
+      margin: auto;
+      cursor: pointer;
+  }
+  
+  </style>
+</body>
+</html>

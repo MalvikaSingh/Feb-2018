@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<head>
+        <title>Table Data Addition</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+    </head>
+    <h2>Employee Records</h2>
+    <body>
+        <style>
+                .button {
+                    background-color: darkblue; /* Green */
+                    border: none;
+                    color: white;
+                    padding: 9px 20px;
+                    text-decoration: none;
+                    display: block;
+                    font-size: 16px;
+                    margin: auto;
+                    cursor: pointer;
+                }
+                
+                </style>
+        <input id="printpagebutton" type="button" class="button" value="Print this page" onclick="printpage()" style="float: right;"/>
+        <!----<button onclick="myFunction()" class="button" align="center">Print this page</button>-->
+        
+        <script type="text/javascript">
+    function printpage() {
+        //Get the print button and put it into a variable
+        var printButton = document.getElementById("printpagebutton");
+        //Set the print button visibility to 'hidden' 
+        printButton.style.visibility = 'hidden';
+        //Print the page content
+        window.print()
+        //Set the print button to 'visible' again 
+        //[Delete this line if you want it to stay hidden after printing]
+        printButton.style.visibility = 'visible';
+    }
+</script>
+        
+</body>
+    <p><br><br></p>
+    <body>
+      <div class="fluid">
+          <table id="Table1">
+          <thead>
+              <tr>
+                  <th data-field="name">UserName</th>
+                  <th data-field="id">UserID</th>
+                  <th data-field="crdate">Creation Date</th>
+                  <th data-field="lldate">Last Login Date</th>
+                  <th data-field="lltime">Last Login Time</th>
+                  <th data-field="role">Role</th>
+                  <th data-field="country">Country</th>
+
+              </tr>
+          </thead>
+      </table>
+      </div>
+  </body>
+<script>
+
+var data_all= 
+        [
+        {"name":"Cloris Banke","id":120348,"crdate":"9.2.2014","lldate":"10.2.2018","lltime":"12:19","role":"GIS Technical Architect","country":"India"},    
+        {"name":"Leesa Gore","id":86681,"crdate":"18.2.2014","lldate":"2.2.2018","lltime":"13:03","role":"Social Worker","country":"India"},
+        {"name":"Webb Vasyutkin","id":76709,"crdate":"4.6.2016","lldate":"1.2.2018","lltime":"15:25","role":"Product Engineer","country":"India"},
+        {"name":"Rozella Bachelor","id":112680,"crdate":"17.7.2014","lldate":"2.2.2018","lltime":"12:59","role":"Research Nurse","country":"India"},
+        {"name":"Kaleena Tyrwhitt","id":75488,"crdate":"26.7.2016","lldate":"13.2.2018","lltime":"12:50","role":"Human Resources Manager","country":"India"},
+        {"name":"Haydon Fattore","id":36701,"crdate":"8.7.2014","lldate":"3.2.2018","lltime":"14:15","role":"Teacher","country":"India"},
+        {"name":"Joseito Blyth","id":82296,"crdate":"23.11.2016","lldate":"21.2.2018","lltime":"11:42","role":"Social Worker","country":"India"},
+        {"name":"Dory Mobius","id":26153,"crdate":"3.5.2014","lldate":"10.2.2018","lltime":"11:26","role":"Product Engineer","country":"India"},
+        {"name":"Calli Temblett","id":21782,"crdate":"4.9.2016","lldate":"3.2.2018","lltime":"15:01","role":"Structural Engineer","country":"India"},
+        {"name":"Zahara Gillinghams","id":33464,"crdate":"14.6.2015","lldate":"2.2.2018","lltime":"15:01","role":"Programmer Analyst IV","country":"India"},
+        {"name":"Rosene Seaton","id":23312,"crdate":"5.12.2014","lldate":"19.2.2018","lltime":"17:19","role":"Mechanical Systems Engineer","country":"India"}
+        ];
+var data_ace =[
+{"name":"Ado Kupker","id":83070,"crdate":"19.1.2016","lldate":"2.2.2018","lltime":"16:12","role":"Senior Quality Engineer","country":"India"},
+{"name":"Ardyce Vasquez","id":84569,"crdate":"10.11.2015","lldate":"2.2.2018","lltime":"14:33","role":"Budget/Accounting Analyst IV","country":"India"},
+{"name":"Reginauld Lowres","id":98270,"crdate":"20.4.2016","lldate":"11.2.2018","lltime":"18:16","role":"Nurse","country":"India"},
+{"name":"Griffith Loines","id":66955,"crdate":"5.12.2014","lldate":"2.2.2018","lltime":"12:19","role":"Data Coordiator","country":"India"},
+{"name":"Brenna Duley","id":77429,"crdate":"5.8.2016","lldate":"2.2.2018","lltime":"17:28","role":"Payment Adjustment Coordinator","country":"India"}];
+var data_core=[{"name":"Doti Josefsen","id":64974,"crdate":"7.6.2014","lldate":"18.2.2018","lltime":"18:46","role":"Registered Nurse","country":"India"},
+{"name":"Fanchon Scarasbrick","id":57829,"crdate":"4.11.2015","lldate":"7.2.2018","lltime":"12:17","role":"Help Desk Operator","country":"India"},
+{"name":"Carlen Crowch","id":3700,"crdate":"24.11.2016","lldate":"7.2.2018","lltime":"16:27","role":"Assistant Media Planner","country":"India"},
+{"name":"Kahlil Brownsey","id":4899,"crdate":"27.6.2016","lldate":"29.2.2018","lltime":"10:31","role":"Senior Financial Analyst","country":"India"},
+{"name":"Petronille Hallt","id":8195,"crdate":"6.3.2015","lldate":"6.2.2018","lltime":"13:35","role":"Software Consultant","country":"India"}]
+var data_etrade=[ {"name":"Finlay Waring","id":14040,"crdate":"20.1.2014","lldate":"19.2.2018","lltime":"15:42","role":"Graphic Designer","country":"India"},
+{"name":"Iago Reightley","id":114202,"crdate":"23.4.2015","lldate":"7.2.2018","lltime":"18:35","role":"Business Systems Development Analyst","country":"India"},
+{"name":"Dud Dunge","id":21600,"crdate":"27.6.2015","lldate":"29.2.2018","lltime":"12:57","role":"Assistant Manager","country":"India"},
+{"name":"Silvie Dewerson","id":118769,"crdate":"14.12.2015","lldate":"29.2.2018","lltime":"14:16","role":"Junior Executive","country":"India"},
+{"name":"Leona Gawthorpe","id":35328,"crdate":"22.11.2014","lldate":"11.2.2018","lltime":"15:16","role":"Financial Advisor","country":"India"},
+];
+var data_inb=[{"name":"Sybilla Sterke","id":42593,"crdate":"11.2.2014","lldate":"8.2.2018","lltime":"13:06","role":"Nurse Practicioner","country":"India"},
+{"name":"Franklin Wenn","id":75518,"crdate":"13.1.2016","lldate":"16.2.2018","lltime":"18:16","role":"VP Product Management","country":"India","lltime":},
+{"name":"Skip Robley","id":109377,"crdate":"9.6.2016","lldate":"1.2.2018","lltime":"15:21","role":"Human Resources Manager","country":"India"},
+{"name":"Persis Beatty","id":67676,"crdate":"31.10.2016","lldate":"5.2.2018","lltime":"15:49","role":"Physical Therapy Assistant","country":"India"},
+{"name":"Cinderella Thieme","id":115788,"crdate":"13.2.2015","lldate":"15.2.2018","lltime":"11:24","role":"VP Accounting","country":"India"},
+];
+var data_netcast=[{"name":"Joseito Blyth","id":82296,"crdate":"23.11.2016","lldate":"21.2.2018","lltime":"11:42","role":"Social Worker","country":"India"},
+{"name":"Dory Mobius","id":26153,"crdate":"3.5.2014","lldate":"10.2.2018","lltime":"11:26","role":"Product Engineer","country":"India"},
+{"name":"Calli Temblett","id":21782,"crdate":"4.9.2016","lldate":"3.2.2018","lltime":"15:01","role":"Structural Engineer","country":"India"},
+{"name":"Zahara Gillinghams","id":33464,"crdate":"14.6.2015","lldate":"21.2.2018","lltime":"15:01","role":"Programmer Analyst IV","country":"India"},
+{"name":"Rosene Seaton","id":23312,"crdate":"5.12.2014","lldate":"19.2.2018","lltime":"17:19","role":"Mechanical Systems Engineer","country":"India"},
+];
+var data_los=[{"name":"Leesa Gore","id":86681,"crdate":"18.2.2014","lldate":"2.2.2018","lltime":"13:03","role":"Social Worker","country":"India"},
+        {"name":"Webb Vasyutkin","id":76709,"crdate":"4.6.2016","lldate":"16.2.2018","lltime":"15:25","role":"Product Engineer","country":"India"},
+        {"name":"Rozella Bachelor","id":112680,"crdate":"17.7.2014","lldate":"21.2.2018","lltime":"12:59","role":"Research Nurse","country":"India"},
+        {"name":"Kaleena Tyrwhitt","id":75488,"crdate":"26.7.2016","lldate":"3.2.2018","lltime":"12:50","role":"Human Resources Manager","country":"India"},
+        {"name":"Haydon Fattore","id":36701,"crdate":"8.7.2014","lldate":"3.2.2018","lltime":"14:15","role":"Teacher","country":"India"},
+        ];
+var data=[];  //empty object for storing json data that user wants
+//function to get user selected checkboxes
+function getAllUrlParams(url) {
+  var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
+  var obj = {};
+  if (queryString) {
+    queryString = queryString.split('#')[0];
+    var arr = queryString.split('&');
+
+    for (var i=0; i<arr.length; i++) {
+      var a = arr[i].split('=');
+      var paramNum = undefined;
+      var paramName = a[0].replace(/\[\d*\]/, function(v) {
+        paramNum = v.slice(1,-1);
+        return '';
+      });
+      var paramValue = typeof(a[1])==='undefined' ? true : a[1];
+      paramName = paramName.toLowerCase();
+      paramValue = paramValue.toLowerCase();
+      if (obj[paramName]) {
+        if (typeof obj[paramName] === 'string') {
+          obj[paramName] = [obj[paramName]];
+        }
+        if (typeof paramNum === 'undefined') {
+          obj[paramName].push(paramValue);
+        }
+        else {
+          obj[paramName][paramNum] = paramValue;
+        }
+      }
+      else {
+        obj[paramName] = paramValue;
+      }
+    }
+  }
+
+  return obj;
+}
+document.write(getAllUrlParams().chb+'<br>'); //gets the options selected by user in previous web page
+var str = (getAllUrlParams().chb+'<br>');// gives array of options selected by user like string ace,core,inb  
+var selchb = str.split(',');//selchb is array containing ace core and inb
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+today = dd + '.' + mm + '.' + yyyy;
+document.write(today+'<br>');
+document.write("Data_all length "+data_all.length);
+var data_nall=[];
+for(var c=0;c<data_all.length;c++){
+    var res=(data_all[c].lldate).split(".");
+    if(res[0]<=dd){
+        data_nall.push(data_all[c]);
+    }
+}
+var data_nace=[];
+for(var d=0;d<data_ace.length;d++){
+    var temp=(data_ace[d].lldate).split(".");
+    if(temp[0]<=dd){
+        data_nace.push(data_ace[d]);
+    }
+}
+var data_ncore=[];
+for(var e=0;e<data_core.length;e++){
+    var test=(data_core[e].lldate).split(".");
+    if(test[0]<=dd){
+        data_ncore.push(data_core[e]);
+    }
+}
+var data_netrade=[];
+for(var f=0;f<data_etrade.length;f++){
+  var emp=(data_etrade[f].lldate).split(".");
+  if(emp[0]<=dd){
+    data_netrade.push(data_etrade[f]);
+  }
+}
+var data_ninb=[];
+for(var g=0;g<data_inb.length;g++){
+  var rest=(data_inb[g].lldate).split(".");
+  if(rest[0]<=dd){
+    data_ninb.push(data_inb[g]);
+  }
+}
+var data_nlos=[];
+for(var h=0;h<data_los.length;h++){
+  var array=(data_los[h].lldate).split(".");
+  if(array[0]<=dd){
+    data_nlos.push(data_los[h]);
+  }
+}
+var data_nnet=[];
+for(var j=0;j<data_netcast.length;j++){
+  var list=(data_netcast[j]).split(".");
+  if(list[0]<=dd){
+    data_nnet.push
+  }
+}
+/////////////////////////////////////
+/*for(var m=0;m<data_netrade.length;m++)
+document.write(data_netrade[m].lldate+'<br>');
+document.write("length_netrade= "+data_netrade.length);*/
+for(var i=0;i<selchb.length;i++){//looping to check user input
+  if(selchb[i]=="all"){
+    data.push({"name":"<h1>Records of ALL</h1>"});
+    for(var l=0;l<(data_nall.length);l++)
+    data.push(data_nall[l]);
+  }
+if(selchb[i]=="ace"){
+  data.push({"name":"<h1>Records of ACE</h1>"})
+  for(var o=0;o<(data_nace.length);o++)
+  data.push(data_nace[o]);
+}
+if(selchb[i]=="core"){
+  data.push({"name":"<h1>Records of CORE</h1>"})
+  for(var q=0;q<(data_ncore.length);q++)
+  data.push(data_ncore[q]);
+}
+if(selchb[i]=="etrade"){
+  data.push({"name":"<h1>Records of ETRADE</h1>"});
+  for(var s=0;s<(data_netrade.length);s++)
+  data.push(data_netrade[s]);
+}
+if(selchb[i]=="inb"){
+  data.push({"name":"<h1>Records of INB</h1>"});
+  for(var t=0;t<data_ninb.length;t++)
+  data.push(data_ninb[t]);
+}
+if(selchb[i]=="los"){
+  data.push({"name":"<h1>Records of LOS</h1>"});
+  for(var u=0;u<data_nlos.length;u++)
+  data.push(data_nlos[u]);
+}
+if(selchb[i]== "netcast"){
+  data.push({"name":"<h1>Records of NETCAST</h1>"});
+  for(var v=0;v<data_nnet.length;v++)
+  data.push(data_nnet[v]);
+}
+}
+$(function () {
+        $('#Table1').bootstrapTable({
+                data: data             //Finally getting the final json string into table for display
+            });
+        });
+        </script>
+</html>
