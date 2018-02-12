@@ -1,2 +1,2 @@
 # Feb-2018
-Creation of required Employee Details Portal Using Angular JS
+Extracting user input from the query string in the browser using RestController.
