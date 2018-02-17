@@ -1,0 +1,63 @@
+<h5>Search</h5>
+<div class="row">
+    <form name="addUser" class="col s12 m12">
+        <div class="row">
+            <div class="input-field col s4">
+                <select ng-model="vm.selectedCountry" material-select>
+                    <option ng-repeat="country in vm.countries" value="{{country.value}}">{{country.label}}</option>
+                </select>
+                <label>Country</label>
+            </div>
+            <div class="input-field col s4">
+                <select material-select ng-model="vm.selectedApplication">
+                    <option ng-repeat="application in vm.applications" value="{{application.value}}">{{application.label}}</option>
+                </select>
+                <label>Application(s)</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="username" type="text" ng-model="vm.username" name="username" />
+                <label for="username">User</label>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="input-field col s12">
+            <div class="input-field col s12 offset-s3">
+                <a ng-click="vm.addUser()" class="waves-effect waves-light btn-large">Add User</a>
+                <input type="file" id="myFile" onchange="myFunction()" accept=".csv" style="padding: 12px 20px;">
+                <a ng-click="vm.upload()" class="waves-effect waves-light btn-large" style="margin:8px 10px;">Upload</a>
+            </div>
+        </div>
+    </div>
+
+    <table class="bordered">
+        <thead>
+            <tr>
+                <th>Mark</th>
+                <th>User Name</th>
+                <th>Country</th>
+                <th>Application</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in vm.users">
+                <td>
+                    <div class="checkbox">
+                        <input type="checkbox" id="user-{{$index}}" name="chk[]" class="checkbox__input">
+                        <label for="user-{{$index}}" class="checkbox__label"></label>
+                    </div>
+                    <br>
+                    <!--<input type="checkbox" ng-model="user.selected"/>-->
+                </td>
+                <td>{{user.userName}}</td>
+                <td>{{user.country}}</td>
+                <td>{{user.application}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <td>
+        <a ng-click="vm.deleteUser()" class="waves-effect waves-light btn-medium" style="margin:8px 10px;">Delete</a>
+        </button>
+    </td>
+</div>
