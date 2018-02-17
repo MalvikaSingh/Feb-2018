@@ -1,0 +1,29 @@
+<h4>User Review Report</h4>
+<br>
+<div class="row" ng-repeat="application in vm.searchForm.selectedApplication">
+    <div class="col s12 m12">
+        <h5><b>{{vm.getApplicationName(application)}}</b></h5>
+        <table class="bordered">
+            <thead>
+              <tr>
+                  <th>UserName</th>
+                  <th>UserID</th>
+                  <th>Creation Date</th>
+                  <th>Last Login Date</th>
+                  <th>Last Login Time</th>
+                  <th>Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="user in vm.userData[application]">
+                <td>{{user.name}}</td>
+                <td>{{user.id}}</td>
+                <td>{{user.crdate}}</td>
+                <td>{{user.lldate}}</td>
+                <td>{{user.lltime}}</td>
+                <td>{{user.role}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

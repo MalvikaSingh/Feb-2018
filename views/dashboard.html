@@ -1,0 +1,10 @@
+<div id="form-views" ui-view></div>
+<div class="row">
+    <div ng-if="vm.getStepNumber() == 1" class="col s3 offset-s5">
+        <a ng-click="vm.fetchUsers()" class="waves-effect waves-light btn-large">Search</a>
+    </div>
+    <div ng-if="vm.getStepNumber() == 2" class="col s3 offset-s5">
+        <a ui-sref=".search" class="waves-effect waves-light btn-large">Back</a>
+    </div>
+</div>
+
